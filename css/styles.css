@@ -196,7 +196,7 @@ p {
 	flex: 0 0 auto;
 	width: 23px;
 	height: 23px;
-	color: var(--color-primary);
+	color: var(--color-gold);
 }
 
 .benefit-item__icon svg {
@@ -345,14 +345,21 @@ p {
 	color: var(--color-white);
 }
 
-.item-card__text .price-old {
+.price-old {
 	color: var(--color-price-old);
+}
+
+.item-card__text .price-old {
 	text-decoration: line-through;
 }
 
 .item-card__text em {
 	font-style: normal;
 	color: var(--color-primary);
+}
+
+.bonuses .item-card__text em {
+	color: var(--color-gold);
 }
 
 /* =========================================================
@@ -457,16 +464,16 @@ p {
 
 .offer-summary__price {
 	font-family: var(--font-heading);
-	font-size: 5rem;
+	font-size: 6.5rem;
 	font-weight: 700;
 	color: var(--color-price);
+	margin-bottom: 0.75rem;
 }
 
 .offer-summary__note {
 	font-family: var(--font-heading);
 	font-size: 1.6rem;
 	color: var(--color-text);
-	margin-top: -1rem;
 }
 
 .offer-summary__badge {
@@ -719,7 +726,7 @@ p {
 	}
 
 	.offer-summary__price {
-		font-size: 3.5rem;
+		font-size: 4.5rem;
 	}
 
 	.btn {
