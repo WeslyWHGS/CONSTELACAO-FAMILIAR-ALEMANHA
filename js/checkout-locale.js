@@ -1,6 +1,5 @@
 (() => {
 	const CHECKOUT_INTL = "https://pay.hotmart.com/I106987842J?checkoutMode=10";
-	const CHECKOUT_BR = "https://go.centerpag.com/PPU38CQF1CD";
 
 	const BRAZIL_TIME_ZONES = new Set([
 		"America/Noronha", "America/Belem", "America/Fortaleza", "America/Recife",
@@ -26,9 +25,12 @@
 		return hasBrazilianLanguage && hasBrazilianTimeZone;
 	};
 
-	const target = isBrazilianVisitor() ? CHECKOUT_BR : CHECKOUT_INTL;
-
-	document.querySelectorAll(".js-checkout-link").forEach((link) => {
-		link.href = target;
-	});
+	// O href padrão no HTML já é o link do Brasil (CenterPag) — funciona
+	// mesmo se este script não rodar. Só trocamos para o link internacional
+	// (Hotmart) quando o visitante NÃO parece ser brasileiro.
+	if (!isBrazilianVisitor()) {
+		document.querySelectorAll(".js-checkout-link").forEach((link) => {
+			link.href = CHECKOUT_INTL;
+		});
+	}
 })();
