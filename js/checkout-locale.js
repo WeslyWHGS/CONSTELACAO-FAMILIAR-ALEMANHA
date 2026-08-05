@@ -1,6 +1,6 @@
 (() => {
-	// TODO: substituir pelo link real de checkout para o Brasil.
-	const CHECKOUT_BR = "https://www.youtube.com/";
+	const CHECKOUT_INTL = "https://pay.hotmart.com/I106987842J?checkoutMode=10";
+	const CHECKOUT_BR = "https://go.centerpag.com/PPU38CQF1CD";
 
 	const BRAZIL_TIME_ZONES = new Set([
 		"America/Noronha", "America/Belem", "America/Fortaleza", "America/Recife",
@@ -26,9 +26,9 @@
 		return hasBrazilianLanguage && hasBrazilianTimeZone;
 	};
 
-	if (isBrazilianVisitor()) {
-		document.querySelectorAll(".js-checkout-link").forEach((link) => {
-			link.href = CHECKOUT_BR;
-		});
-	}
+	const target = isBrazilianVisitor() ? CHECKOUT_BR : CHECKOUT_INTL;
+
+	document.querySelectorAll(".js-checkout-link").forEach((link) => {
+		link.href = target;
+	});
 })();
